@@ -1,6 +1,7 @@
 import tkinter as tk
 
 from lexico import busqueda_Delimitadores, busqueda_Digito, busqueda_parentesis, busqueda_Reservadas, busqueda_Variables
+from lexico2 import lexico as lex
 
 class interfaz():
     def __init__(self):
@@ -13,7 +14,7 @@ class interfaz():
         self.labelTitulo=tk.Label(self.ventana, text="Analizador de pseudocodigo", width=68, height=2, background="#4C5CA6" ,foreground="#FCF9F9", font=("Tahoma", 22,)).place(x=0,y=45)
         self.labelSubTitulo=tk.Label(self.ventana, text="Pseudocodigo a evaluar:", background="#D5E6DD", foreground="#596186", font=("Arial", 17)).place(x=125,y=171)
 
-        self.CajaTexto=tk.Text(self.ventana, highlightbackground="#4C5CA6", foreground="#596186", highlightthickness = 1, bd=0, font=("Arial", 14))
+        self.CajaTexto=tk.Text(self.ventana, highlightbackground="#4C5CA6", foreground="#596186", highlightthickness = 1, bd=0, font=("Arial", 12))
         self.CajaTexto.place(x=60,y=219,width=375, height=386)
 
 
@@ -38,8 +39,10 @@ class interfaz():
         cant_Digitos, Digitos, newTexto4 = busqueda_Digito(newTexto3)
         cant_Variable, Variables, Errores = busqueda_Variables(newTexto4)
 
+        texto_Nuevo, tablaReservadas, totalReservadas = lex.busqueda_Reservadas(texto_Codigo)
+
         print('----------------')
-        print('Reservadas: ', cant_reservadas ,' = ',reservadas)
+        print('Reservadas: ', totalReservadas ,' = ', tablaReservadas)
         print('Delimitador: ', cant_delimitador, ' = ' ,delimitador)
         print('Parentesis', cant_parentesis, ' =  ', parentesis)
         print('Variables: ', cant_Variable, '= ', Variables)
@@ -47,18 +50,18 @@ class interfaz():
         print('Errores: ', len(Errores), ' = ', Errores)
         print('----------------')
 
-        tk.Label(self.ventana, background="#FFFFFF",text=cant_reservadas, font=("Arial", 13)).place(x=662,y=253)
+        tk.Label(self.ventana, background="#FFFFFF",text=totalReservadas, font=("Arial", 13)).place(x=662,y=253)
         tk.Label(self.ventana, background="#FFFFFF",text=cant_delimitador, font=("Arial", 13)).place(x=600,y=303)
         tk.Label(self.ventana, background="#FFFFFF",text=cant_parentesis, font=("Arial", 13)).place(x=578,y=353)
         tk.Label(self.ventana, background="#FFFFFF",text=cant_Variable, font=("Arial", 13)).place(x=560,y=403)
         tk.Label(self.ventana, background="#FFFFFF",text=cant_Digitos, font=("Arial", 13)).place(x=554,y=453)
 
 
-        tk.Label(self.ventana, background="#FFFFFF",text=reservadas, font=("Arial", 13)).place(x=675,y=253)
-        tk.Label(self.ventana, background="#FFFFFF",text=delimitador, font=("Arial", 13)).place(x=615,y=303)
-        tk.Label(self.ventana, background="#FFFFFF",text=parentesis, font=("Arial", 13)).place(x=598,y=353)
-        tk.Label(self.ventana, background="#FFFFFF",text=Variables, font=("Arial", 13)).place(x=576,y=403)
-        tk.Label(self.ventana, background="#FFFFFF",text=Digitos, font=("Arial", 13)).place(x=576,y=453)
-        tk.Label(self.ventana, background="#FFFFFF",text= Errores, font=("Arial", 13)).place(x=526,y=543)
+        # tk.Label(self.ventana, background="#FFFFFF",text=tablaReservadas, font=("Arial", 13)).place(x=675,y=253)
+        # tk.Label(self.ventana, background="#FFFFFF",text=delimitador, font=("Arial", 13)).place(x=615,y=303)
+        # tk.Label(self.ventana, background="#FFFFFF",text=parentesis, font=("Arial", 13)).place(x=598,y=353)
+        # tk.Label(self.ventana, background="#FFFFFF",text=Variables, font=("Arial", 13)).place(x=576,y=403)
+        # tk.Label(self.ventana, background="#FFFFFF",text=Digitos, font=("Arial", 13)).place(x=576,y=453)
+        # tk.Label(self.ventana, background="#FFFFFF",text= Errores, font=("Arial", 13)).place(x=526,y=543)
     
 VentanaPrincipal = interfaz()
