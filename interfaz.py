@@ -39,16 +39,14 @@ class interfaz():
         # cant_Digitos, Digitos, newTexto4 = busqueda_Digito(newTexto3)
         # cant_Variable, Variables, Errores = busqueda_Variables(newTexto4)
 
-        # texto_Nuevo, tablaReservadas, totalReservadas = lex.busqueda_Reservadas(texto_Codigo)
 
         # Extraer Datos 
         n_Texto, p_Reservadas, tt_Reservadas = lex.busqueda_Reservadas(texto_Codigo)
-        n_Texto2, p_Delimitadores, tt_Delimitadores = lex.busqueda_Delimitadores(n_Texto) 
 
 
         print('----------------')
         print('Reservadas: ', tt_Reservadas ,' = ', p_Reservadas)
-        print('Delimitador: ', tt_Delimitadores, ' = ' , p_Delimitadores)
+        # print('Delimitador: ', tt_Delimitadores, ' = ' , p_Delimitadores)
         # print('Parentesis', cant_parentesis, ' =  ', parentesis)
         # print('Variables: ', cant_Variable, '= ', Variables)
         # print('Digitos: ', cant_Digitos, ' = ', Digitos)
@@ -56,7 +54,7 @@ class interfaz():
         print('----------------')
 
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Reservadas, font=("Arial", 13)).place(x=662,y=253)
-        tk.Label(self.ventana, background="#FFFFFF",text=tt_Delimitadores, font=("Arial", 13)).place(x=600,y=303)
+        tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=600,y=303)
         tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=578,y=353)
         tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=560,y=403)
         tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=554,y=453)
