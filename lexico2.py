@@ -49,8 +49,10 @@ class lexico:
 
     
     def busqueda_Operadores(texto):
-        tamanio_Texto = len(texto)
         tamanio_Operadores = len(grama.operadores)
+        n_Texto, operadores, frecuencia = lexico.busqueda_General(texto, tamanio_Operadores, grama.operadores)
+
+        return n_Texto, operadores, frecuencia
 
     def busqueda_Variables(texto):
         pass
