@@ -1,10 +1,8 @@
 from gramatica import gramatica as grama
 
-tamanio_Reservadas = len(grama.reservadas)
 
 class lexico:
 
-    
     def busqueda_General(texto, tamanio, t_Gramatica):
         tamanio_Texto = len(texto)
 
@@ -36,15 +34,27 @@ class lexico:
         
         return texto, encontradas, total_Frecuencia
 
-
     def busqueda_Reservadas(texto):
         texto = texto.split()
         tamanio_Reservadas = len(grama.reservadas)
         n_Texto, reservadas, frecuencia = lexico.busqueda_General(texto, tamanio_Reservadas, grama.reservadas)
 
         return n_Texto, reservadas, frecuencia
+    
+    def busqueda_Delimitadores(texto):
+        tamanio_Delimitadores = len(grama.delimitadores)
+        n_Texto, delimitadores, frecuencia = lexico.busqueda_General(texto, tamanio_Delimitadores, grama.delimitadores)
+        
+        return n_Texto, delimitadores, frecuencia
 
+    
+    def busqueda_Operadores(texto):
+        tamanio_Texto = len(texto)
+        tamanio_Operadores = len(grama.operadores)
 
-# lexico.busqueda_Reservadas('Proceso numero , Caracter Real 34 Real 77 , Hacer Logico Real Logico Mexico FinProceso')
-            
+    def busqueda_Variables(texto):
+        pass
+
+    def busqueda_Digitos(texto):
+        pass
         
