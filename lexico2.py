@@ -87,3 +87,7 @@ class lexico:
         n_Texto, digitos, frecuencia = lexico.busqueda_General2(texto,expresion)
         
         return n_Texto, digitos, frecuencia
+    
+    def busqueda_Errores(texto):
+        tamanio = len(texto)
+        return tamanio, texto
