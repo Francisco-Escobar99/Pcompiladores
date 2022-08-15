@@ -1,5 +1,5 @@
 from gramatica import gramatica as grama
-
+import re as r
 
 class lexico:
 
@@ -33,6 +33,26 @@ class lexico:
             total_Frecuencia += datos_Finales[valor][1]
         
         return texto, encontradas, total_Frecuencia
+    
+    def busqueda_General2(texto, gramatica):
+        met_Evaluar = r.compile(gramatica)
+        v_Encontrados = []
+
+        for palabra in texto:
+            n_Variable = met_Evaluar.findall(palabra)
+            tamanio = len(n_Variable)
+
+            if tamanio > 0:
+                v_Encontrados.append(n_Variable)
+                posicion = texto.index(palabra)
+                texto.pop(posicion)
+        total_Frecuencia = len(v_Encontrados)
+
+        return texto, v_Encontrados, total_Frecuencia
+                
+            
+
+
 
     def busqueda_Reservadas(texto):
         texto = texto.split()
@@ -55,8 +75,9 @@ class lexico:
         return n_Texto, operadores, frecuencia
 
     def busqueda_Variables(texto):
-        pass
-
-    def busqueda_Digitos(texto):
-        pass
+        expresion = grama.variables
+        n_Texto, variables, frecuencia = lexico.busqueda_General2(texto,expresion)
         
+        return n_Texto, variables, frecuencia
+            
+      

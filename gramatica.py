@@ -25,6 +25,6 @@ class gramatica:
     ]
 
 
-    variables = '[a-zA-Z_][a-zA-Z_0-9]*'
+    variables = '^[A-Z|a-z][a-z0-9|a-z\_\d|a-z]+$'
     decimales = '\d+\.\d+'
     enteros = '\d+'

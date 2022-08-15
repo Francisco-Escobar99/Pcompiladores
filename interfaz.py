@@ -34,20 +34,22 @@ class interfaz():
         n_Texto, p_Reservadas, tt_Reservadas = lex.busqueda_Reservadas(texto_Codigo)
         n_Texto2, p_Delimitadores, tt_Delimitadores = lex.busqueda_Delimitadores(n_Texto)
         n_Texto3, p_Operadores, tt_Operadores = lex.busqueda_Operadores(n_Texto2)
+        n_Texto4, p_Variables, tt_Variables = lex.busqueda_Variables(n_Texto3)
+     
 
         print('----------------')
         print('Reservadas: ', tt_Reservadas ,' = ', p_Reservadas)
         print('Delimitador: ', tt_Delimitadores, ' = ' , p_Delimitadores)
         print('Operadores: ', tt_Operadores, ' =  ', p_Operadores)
-        # print('Variables: ', cant_Variable, '= ', Variables)
-        # print('Digitos: ', cant_Digitos, ' = ', Digitos)
+        print('Variables: ', tt_Variables, '= ', p_Variables)
+        # print('Digitos: ', tt_Digitos, ' = ', p_Digitos)
         # print('Errores: ', len(Errores), ' = ', Errores)
         print('----------------')
 
         tk.Label(self.ventana, background="#FFFFFF",text= tt_Reservadas, font=("Arial", 13)).place(x=662,y=253)
         tk.Label(self.ventana, background="#FFFFFF",text= tt_Delimitadores, font=("Arial", 13)).place(x=600,y=303)
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Operadores, font=("Arial", 13)).place(x=578,y=353)
-        tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=560,y=403)
+        tk.Label(self.ventana, background="#FFFFFF",text=tt_Variables, font=("Arial", 13)).place(x=560,y=403)
         tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=554,y=453)
 
 
