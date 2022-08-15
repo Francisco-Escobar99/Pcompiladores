@@ -37,6 +37,7 @@ class interfaz():
         n_Texto4, p_Variables, tt_Variables = lex.busqueda_Variables(n_Texto3)
         n_Texto5, p_Digitos, tt_Digitos = lex.busqueda_Decimales(n_Texto4)
         n_Texto6, p_Digitos2, tt_Digitos2 = lex.busqueda_Enteros(n_Texto5)
+        tt_Errores, p_Errores = lex.busqueda_Errores(n_Texto6)
 
         suma_Digitos = tt_Digitos + tt_Digitos2
 
@@ -46,14 +47,14 @@ class interfaz():
         print('Operadores: ', tt_Operadores, ' =  ', p_Operadores)
         print('Variables: ', tt_Variables, '= ', p_Variables)
         print('Digitos: ', suma_Digitos, ' = ', p_Digitos + p_Digitos2)
-        # print('Errores: ', len(Errores), ' = ', Errores)
+        print('Errores: ', tt_Errores, ' = ', p_Errores)
         print('----------------')
 
         tk.Label(self.ventana, background="#FFFFFF",text= tt_Reservadas, font=("Arial", 13)).place(x=662,y=253)
         tk.Label(self.ventana, background="#FFFFFF",text= tt_Delimitadores, font=("Arial", 13)).place(x=600,y=303)
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Operadores, font=("Arial", 13)).place(x=578,y=353)
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Variables, font=("Arial", 13)).place(x=560,y=403)
-        tk.Label(self.ventana, background="#FFFFFF",text=tt_Digitos, font=("Arial", 13)).place(x=554,y=453)
+        tk.Label(self.ventana, background="#FFFFFF",text=suma_Digitos, font=("Arial", 13)).place(x=554,y=453)
 
 
         # tk.Label(self.ventana, background="#FFFFFF",text=tablaReservadas, font=("Arial", 13)).place(x=675,y=253)
@@ -61,6 +62,6 @@ class interfaz():
         # tk.Label(self.ventana, background="#FFFFFF",text=parentesis, font=("Arial", 13)).place(x=598,y=353)
         # tk.Label(self.ventana, background="#FFFFFF",text=Variables, font=("Arial", 13)).place(x=576,y=403)
         # tk.Label(self.ventana, background="#FFFFFF",text=Digitos, font=("Arial", 13)).place(x=576,y=453)
-        # tk.Label(self.ventana, background="#FFFFFF",text= Errores, font=("Arial", 13)).place(x=526,y=543)
+        tk.Label(self.ventana, background="#FFFFFF",text= p_Errores, font=("Arial", 13)).place(x=526,y=543)
     
 VentanaPrincipal = interfaz()
