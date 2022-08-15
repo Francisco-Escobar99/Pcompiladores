@@ -75,5 +75,15 @@ class lexico:
         n_Texto, variables, frecuencia = lexico.busqueda_General2(texto,expresion)
         
         return n_Texto, variables, frecuencia
-            
-      
+    
+    def busqueda_Decimales(texto):
+        expresion = grama.decimales
+        n_Texto, digitos, frecuencia = lexico.busqueda_General2(texto,expresion)
+
+        return n_Texto, digitos, frecuencia
+     
+    def busqueda_Enteros(texto):
+        expresion = grama.enteros
+        n_Texto, digitos, frecuencia = lexico.busqueda_General2(texto,expresion)
+        
+        return n_Texto, digitos, frecuencia

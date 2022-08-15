@@ -24,7 +24,7 @@ class interfaz():
         self.labelDelimitadores=tk.Label(self.ventana, background="#FFFFFF",text="Delimitadores:", font=("Arial", 14)).place(x=469,y=300, width=140)
         self.labelParentesis=tk.Label(self.ventana, background="#FFFFFF",text="Operadores:", font=("Arial", 14)).place(x=477,y=350, width=100)
         self.labelPalabras=tk.Label(self.ventana, background="#FFFFFF",text="Variables:", font=("Arial", 14)).place(x=470,y=400, width=100)
-        self.labelEntero=tk.Label(self.ventana, background="#FFFFFF",text="Enteros:", font=("Arial", 14)).place(x=475,y=450, width=80)
+        self.labelEntero=tk.Label(self.ventana, background="#FFFFFF",text="Digitos:", font=("Arial", 14)).place(x=475,y=450, width=80)
         self.btnAnalizar=tk.Button(self.ventana, text="Analizar y Tradurcir",  background="#4C5CA6", foreground="#FCF9F9", font=("Arial", 14,),command= lambda:self.ResultadoLexico(self.CajaTexto.get('1.0','end')))
         self.btnAnalizar.place(x=460,y=615, width=190, height=35)
         self.ventana.mainloop()
@@ -35,14 +35,17 @@ class interfaz():
         n_Texto2, p_Delimitadores, tt_Delimitadores = lex.busqueda_Delimitadores(n_Texto)
         n_Texto3, p_Operadores, tt_Operadores = lex.busqueda_Operadores(n_Texto2)
         n_Texto4, p_Variables, tt_Variables = lex.busqueda_Variables(n_Texto3)
-     
+        n_Texto5, p_Digitos, tt_Digitos = lex.busqueda_Decimales(n_Texto4)
+        n_Texto6, p_Digitos2, tt_Digitos2 = lex.busqueda_Enteros(n_Texto5)
+
+        suma_Digitos = tt_Digitos + tt_Digitos2
 
         print('----------------')
         print('Reservadas: ', tt_Reservadas ,' = ', p_Reservadas)
         print('Delimitador: ', tt_Delimitadores, ' = ' , p_Delimitadores)
         print('Operadores: ', tt_Operadores, ' =  ', p_Operadores)
         print('Variables: ', tt_Variables, '= ', p_Variables)
-        # print('Digitos: ', tt_Digitos, ' = ', p_Digitos)
+        print('Digitos: ', suma_Digitos, ' = ', p_Digitos + p_Digitos2)
         # print('Errores: ', len(Errores), ' = ', Errores)
         print('----------------')
 
@@ -50,7 +53,7 @@ class interfaz():
         tk.Label(self.ventana, background="#FFFFFF",text= tt_Delimitadores, font=("Arial", 13)).place(x=600,y=303)
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Operadores, font=("Arial", 13)).place(x=578,y=353)
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Variables, font=("Arial", 13)).place(x=560,y=403)
-        tk.Label(self.ventana, background="#FFFFFF",text='', font=("Arial", 13)).place(x=554,y=453)
+        tk.Label(self.ventana, background="#FFFFFF",text=tt_Digitos, font=("Arial", 13)).place(x=554,y=453)
 
 
         # tk.Label(self.ventana, background="#FFFFFF",text=tablaReservadas, font=("Arial", 13)).place(x=675,y=253)
