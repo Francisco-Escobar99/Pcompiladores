@@ -54,7 +54,6 @@ class lexico:
 
 
 
-
     def busqueda_Reservadas(texto):
         texto = texto.split()
         tamanio_Reservadas = len(grama.reservadas)
