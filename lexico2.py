@@ -37,15 +37,20 @@ class lexico:
     def busqueda_General2(texto, gramatica):
         met_Evaluar = r.compile(gramatica)
         v_Encontrados = []
+        minusculas = []
+
+        for s in grama.reservadas:
+            minusculas.append(s.lower())
 
         for palabra in texto:
-            n_Variable = met_Evaluar.findall(palabra)
-            tamanio = len(n_Variable)
+            if palabra not in minusculas:
+                n_Variable = met_Evaluar.findall(palabra)
+                tamanio = len(n_Variable)
 
-            if tamanio > 0:
-                v_Encontrados.append(n_Variable)
-                posicion = texto.index(palabra)
-                texto.pop(posicion)
+                if tamanio > 0:
+                    v_Encontrados.append(n_Variable)
+                    posicion = texto.index(palabra)
+                    texto.pop(posicion)
         total_Frecuencia = len(v_Encontrados)
 
         return texto, v_Encontrados, total_Frecuencia
@@ -73,7 +78,7 @@ class lexico:
     def busqueda_Variables(texto):
         expresion = grama.variables
         n_Texto, variables, frecuencia = lexico.busqueda_General2(texto,expresion)
-        
+
         return n_Texto, variables, frecuencia
     
     def busqueda_Decimales(texto):
