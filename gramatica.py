@@ -28,3 +28,4 @@ class gramatica:
     variables = '^[A-Z|a-z][_\d|_A-Za-z]+$'
     decimales = '\d+.\d+'
     enteros = '\d+'
+    numeros = '^[1-9]\d*(\.\d+)?$'

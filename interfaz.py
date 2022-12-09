@@ -1,5 +1,7 @@
 import tkinter as tk
 from lexico2 import lexico as lex
+from sintactico import sintaxis as sin
+from interfazTraductor import interfazTraductor
 
 class interfaz():
     def __init__(self):
@@ -56,6 +58,13 @@ class interfaz():
         tk.Label(self.ventana, background="#FFFFFF",text=tt_Variables, font=("Arial", 13)).place(x=560,y=403)
         tk.Label(self.ventana, background="#FFFFFF",text=suma_Digitos, font=("Arial", 13)).place(x=554,y=453)
 
+        opcion = sin(texto_Codigo)
+        print(opcion)
+
+        if opcion == True:
+            print('Son Errores')
+        else:
+            interfazTraductor(texto_Codigo)
 
         # tk.Label(self.ventana, background="#FFFFFF",text=tablaReservadas, font=("Arial", 13)).place(x=675,y=253)
         # tk.Label(self.ventana, background="#FFFFFF",text=delimitador, font=("Arial", 13)).place(x=615,y=303)
